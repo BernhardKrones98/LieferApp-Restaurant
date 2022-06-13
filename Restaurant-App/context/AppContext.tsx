@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {useState} from "react";
 
-const AppContext = React.createContext(null);
+export const AppContext = React.createContext(null);
 
 export const ContextWrapper = (props:any) => {
     const [ store, setStore ] = useState({

@@ -13,10 +13,12 @@ import {
     Center,
     NativeBaseProvider
 } from "native-base";
-import {useNavigation} from "@react-navigation/native";
+import {useContext} from "react";
+import {AppContext} from "../context/AppContext";
 
-export default function TabOneScreen() {
-    const navigation = useNavigation()
+export default function TabOneScreen({navigation}: RootTabScreenProps<'TabOne'>) {
+    const context = useContext(AppContext);
+
     return (
         <NativeBaseProvider>
             <Center flex={1} px="3">
@@ -25,7 +27,7 @@ export default function TabOneScreen() {
                         <Heading size="lg" fontWeight="600" color="coolGray.800" _dark={{
                             color: "warmGray.50"
                         }}>
-                            Welcome
+                            Welcome {context.store.todos[0]}
                         </Heading>
                         <Heading mt="1" _dark={{
                             color: "warmGray.200"
